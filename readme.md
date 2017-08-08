@@ -1,4 +1,4 @@
-## Pinnacle Estate Laravel 5.1
+## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
@@ -25,22 +25,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-ALTER TABLE `properties` ADD `is_paid` INT(11) NOT NULL DEFAULT '0' AFTER `status`, ADD `payment_id` INT(11) NULL DEFAULT NULL AFTER `is_paid`, ADD `plan_type` INT(11) NULL DEFAULT NULL AFTER `payment_id`;
-
-CREATE TABLE `pinnacle_estate`.`payments` ( `id` INT NOT NULL AUTO_INCREMENT , `txnid` VARCHAR(30) NOT NULL , `payment_amount` INT(11) NOT NULL , `payment_status` VARCHAR(255) NOT NULL , `user_id` INT(11) NOT NULL , `status` TINYINT NOT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
-
-
-CREATE TABLE `pinnacle_estate`.`plans` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `price` INT(11) NOT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-
-ALTER TABLE `plans` ADD `type` ENUM('sale','rent','','') NOT NULL DEFAULT 'rent' AFTER `price`;
-
-INSERT INTO `plans` (`id`, `title`, `price`, `created_at`, `updated_at`) VALUES (NULL, 'INTRODUCTION  PACK', '199', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');
-
-INSERT INTO `plans` (`id`, `title`, `price`, `created_at`, `updated_at`) VALUES (NULL, 'Management Pack', '5', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');
-
-
-INSERT INTO `plans` (`id`, `title`, `price`, `type`, `created_at`, `updated_at`) VALUES (NULL, 'Bronze Package', '299', 'sale', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000'), (NULL, 'Silver Package', '499', 'sale', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');
-
-INSERT INTO `plans` (`id`, `title`, `price`, `type`, `created_at`, `updated_at`) VALUES (NULL, 'Gold Package', '599', 'sale', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');
